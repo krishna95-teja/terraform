@@ -4,6 +4,7 @@ terraform {
   storage_account_name = "sttfbackend1"
   container_name = "tfstate"
   key = "dev.terraform.tfstate"       # Path to the statefile is sttfbackend1/tfstate/dev.terraform.tfstate
+  use_azuread_auth = true
   }
  }
 resource "azurerm_resource_group" "demo" {
