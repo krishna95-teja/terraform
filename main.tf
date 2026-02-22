@@ -18,7 +18,7 @@ resource "azurerm_virtual_network" "vnet" {
 	address_space = ["10.0.0.0/16"]
 	subnet {
 		name = "subnet1"
-		address_prefix = ["10.0.1.0/24"]
+		address_prefixes = ["10.0.1.0/24"]
 	}
 }
 
@@ -26,20 +26,21 @@ resource "azurerm_public_ip" "pubip" {
 	name = "public-ip-name-demo"
 	resource_group_name = azurerm_resource_group.demo.name
 	location = azurerm_resource_group.demo.location
-	allocation_method = "static"
+	allocation_method = "Static"
 }
 
 resource "azurerm_network_interface" "nic" {
 	name = "nic-name-demo-one"
+    location = azurerm_resource_group.demo.location
 	resource_group_name = azurerm_resource_group.demo.name
 }
 
 
-resource "azurerm_vm" "vm-demo" {
+resource "azurerm_virtual_machine" "vm-demo" {
  name = "vm-demo-one"
  location = azurerm_resource_group.demo.location
  resource_group_name = azurerm_resource_group.demo.name
- size = "Standard_F2"
+ size = "Standard_B1s"
 	source_image_reference {
 		publisher = "Canonical"
     		offer     = "0001-com-ubuntu-server-jammy"
