@@ -18,20 +18,19 @@ resource "azurerm_virtual_network" "vnet" {
 	address_space = ["10.0.0.0/16"]
 	subnet {
 		name = "subnet1"
-		address_prefixes = ["10.0.1.0/24"]
+		address_prefix = ["10.0.1.0/24"]
 	}
 }
 
 resource "azurerm_public_ip" "pubip" {
-	name = var.public_ip_name
+	name = "public-ip-name-demo"
 	resource_group_name = azurerm_resource_group.demo.name
 	location = azurerm_resource_group.demo.location
 	allocation_method = "static"
-	tags = var.tags
 }
 
 resource "azurerm_network_interface" "nic" {
-	name = var.nic_name
+	name = "nic-name-demo-one"
 	resource_group_name = azurerm_resource_group.demo.name
 }
 
