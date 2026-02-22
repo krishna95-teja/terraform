@@ -10,4 +10,5 @@ terraform {
 resource "azurerm_resource_group" "demo" {
  name = "rg-demo-dev-update"
  location = "South India"
+ create_before_destroy = true
 }
