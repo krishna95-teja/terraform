@@ -51,6 +51,4 @@ admin_ssh_key {
  username = "adminuser"
  public_key = file("~/.ssh/id_rsa.pub")
    }
-  }
-  
-} 
+  } 
